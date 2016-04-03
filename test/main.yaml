@@ -1,0 +1,17 @@
+---
+- name: Bring up docker containers
+  hosts: localhost
+  gather_facts: false
+  vars:
+    inventory:
+      - name: host_1
+        image: "chrismeyers/ubuntu12.04"
+  roles:
+    - role: provision_docker
+      provision_docker_inventory: "{{ inventory }}"
+
+- name: Hello world
+  hosts: docker_containers
+  tasks:
+    - debug:
+        msg: "Hello world"
