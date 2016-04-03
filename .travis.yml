@@ -27,7 +27,6 @@ install:
   - ansible-galaxy install -r test/requirements.yaml -p test/roles/
 
 script:
-  - cd test && ls -al roles
   - cd test && sudo ansible-playbook -i inventory -e "provision_docker_privileged=true" main.yaml --syntax-check
   - cd test && sudo ansible-playbook -i inventory -e "provision_docker_privileged=true" main.yaml
   - >
