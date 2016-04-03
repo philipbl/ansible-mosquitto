@@ -10,7 +10,7 @@
     - role: provision_docker
       provision_docker_inventory: "{{ inventory }}"
 
-- name: Hello world
+- name: Test role
   hosts: docker_containers
   roles:
     - role: philipbl.mosquitto
