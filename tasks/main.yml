@@ -1,14 +1,12 @@
-- name: Add Mosquitto key
-  apt_key: url=http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key state=present
-
-- name: Add Mosquitto repo
-  apt_repository: repo='deb http://repo.mosquitto.org/debian jessie main' state=present update_cache=yes
-
 - name: Install Mosquitto
-  apt: name=mosquitto state=present
+  apt:
+    name: mosquitto
+    state: present
 
 - name: Install MQTT client
-  apt: name=mosquitto-clients state=present
+  apt:
+    name: mosquitto-clients
+    state: present
 
 - name: Add configuration
   template:
@@ -16,7 +14,7 @@
     dest: /etc/mosquitto/conf.d/prisms.conf
   register: add_configuration
 
-- name: "Create passwd if it doesn't already exist"
+- name: Create passwd if it doesn't already exist
   file:
     state: touch
     path: /etc/mosquitto/passwd
