@@ -12,6 +12,5 @@
 
 - name: Hello world
   hosts: docker_containers
-  tasks:
-    - debug:
-        msg: "Hello world"
+  roles:
+    - role: philipbl.mosquitto
