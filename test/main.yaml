@@ -13,4 +13,4 @@
 - name: Test role
   hosts: docker_containers
   roles:
-    - role: philipbl.mosquitto
+    - role: ansible-mosquitto
