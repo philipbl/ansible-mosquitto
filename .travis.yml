@@ -30,8 +30,8 @@ script:
   - cd test && sudo ansible-playbook -i inventory -e "provision_docker_privileged=true" main.yaml --syntax-check
   - cd test && sudo ansible-playbook -i inventory -e "provision_docker_privileged=true" main.yaml
   - >
-  cd test
-  && sudo ansible-playbook -i inventory -e "provision_docker_privileged=true" main.yaml
-  | grep -q 'changed=0.*failed=0'
-  && (echo 'Idempotence test: pass' && exit 0)
-  || (echo 'Idempotence test: fail' && exit 1)
+    cd test
+    && sudo ansible-playbook -i inventory -e "provision_docker_privileged=true" main.yaml
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
